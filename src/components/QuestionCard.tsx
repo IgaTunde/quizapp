@@ -3,21 +3,36 @@ import React from "react";
 
 import AnswerOption from "./AnswerOption";
 import { Question } from "../types";
+import questions from "../questions";
 
 type QuestionProps = {
   question: Question;
 };
 
 export default function QuestionCard({ question }: QuestionProps) {
+  const selectedOption = question.options[2];
+
   return (
     <View style={styles.questionCard}>
       <Text style={styles.question}>{question.title}</Text>
 
       <View style={{ gap: 10 }}>
-        <AnswerOption option={question.options[0]} />
-        <AnswerOption option={question.options[1]} />
-        <AnswerOption option={question.options[2]} />
-        <AnswerOption option={question.options[3]} />
+        <AnswerOption
+          option={question.options[0]}
+          isSelected={question.options[0] === selectedOption}
+        />
+        <AnswerOption
+          option={question.options[1]}
+          isSelected={question.options[1] === selectedOption}
+        />
+        <AnswerOption
+          option={question.options[2]}
+          isSelected={question.options[2] === selectedOption}
+        />
+        <AnswerOption
+          option={question.options[3]}
+          isSelected={question.options[3] === selectedOption}
+        />
       </View>
     </View>
   );
