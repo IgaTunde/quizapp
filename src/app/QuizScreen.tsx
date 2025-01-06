@@ -29,7 +29,7 @@ export default function QuizScreen() {
         </View>
 
         <Pressable style={styles.button}>
-          <Text style={styles.buttonText}>Footer</Text>
+          <Text style={styles.buttonText}>Next</Text>
           <FontAwesome6
             name="arrow-right-long"
             size={16}
