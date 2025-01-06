@@ -3,7 +3,7 @@ import React from "react";
 
 import AnswerOption from "./AnswerOption";
 import { Question } from "../types";
-import questions from "../questions";
+import Card from "./Card";
 
 type QuestionProps = {
   question: Question;
@@ -17,9 +17,7 @@ export default function QuestionCard({ question }: QuestionProps) {
   };
 
   return (
-    <View style={styles.questionCard}>
-      <Text style={styles.question}>{question.title}</Text>
-
+    <Card title={question.title}>
       <View style={{ gap: 10 }}>
         {question.options.map((option) => (
           <AnswerOption
@@ -30,31 +28,6 @@ export default function QuestionCard({ question }: QuestionProps) {
           />
         ))}
       </View>
-    </View>
+    </Card>
   );
 }
-
-const styles = StyleSheet.create({
-  questionCard: {
-    backgroundColor: "white",
-    padding: 20,
-    paddingVertical: 40,
-    borderRadius: 20,
-    gap: 20,
-
-    //shadows
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
-  },
-  question: {
-    fontSize: 24,
-    fontWeight: "500",
-  },
-});

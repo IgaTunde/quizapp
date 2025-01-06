@@ -12,6 +12,7 @@ import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 import QuestionCard from "../components/QuestionCard";
 import questions from "../questions";
+import Card from "../components/Card";
 
 const question = questions[0];
 
@@ -23,10 +24,14 @@ export default function QuizScreen() {
           <Text style={styles.title}>Question 1/5</Text>
         </View>
 
-        <View>
-          <QuestionCard question={question} />
-          <Text style={styles.time}>20 sec</Text>
-        </View>
+        {question ? (
+          <View>
+            <QuestionCard question={question} />
+            <Text style={styles.time}>20 sec</Text>
+          </View>
+        ) : (
+          <Card title="Well done" />
+        )}
 
         <Pressable style={styles.button}>
           <Text style={styles.buttonText}>Next</Text>
