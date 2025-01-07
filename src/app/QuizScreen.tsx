@@ -13,6 +13,7 @@ import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import QuestionCard from "../components/QuestionCard";
 import questions from "../questions";
 import Card from "../components/Card";
+import CustomButton from "../components/CustomButton";
 
 const question = questions[0];
 
@@ -33,15 +34,14 @@ export default function QuizScreen() {
           <Card title="Well done" />
         )}
 
-        <Pressable style={styles.button}>
-          <Text style={styles.buttonText}>Next</Text>
-          <FontAwesome6
-            name="arrow-right-long"
-            size={16}
-            color="white"
-            style={styles.buttonIcon}
-          />
-        </Pressable>
+        <CustomButton
+          onPress={() => console.warn("Button Pressed")}
+          onLongPress={() => console.warn("long press")}
+          title="Next"
+          rightIcon={
+            <FontAwesome6 name="arrow-right-long" size={16} color="white" />
+          }
+        />
       </View>
     </SafeAreaView>
   );
@@ -67,22 +67,5 @@ const styles = StyleSheet.create({
     marginTop: 15,
     textAlign: "center",
     color: "#005055",
-  },
-  button: {
-    backgroundColor: "#005055",
-    padding: 20,
-    borderRadius: 100,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  buttonText: {
-    color: "white",
-    fontWeight: "500",
-    fontSize: 16,
-    letterSpacing: 1.5,
-  },
-  buttonIcon: {
-    position: "absolute",
-    right: 20,
   },
 });
