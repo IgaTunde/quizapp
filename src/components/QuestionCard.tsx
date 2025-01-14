@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { useState } from "react";
 
 import AnswerOption from "./AnswerOption";
 import { Question } from "../types";
@@ -10,11 +11,9 @@ type QuestionProps = {
 };
 
 export default function QuestionCard({ question }: QuestionProps) {
-  const selectedOption = question.options[0];
 
-  const onOptionSelected = (option: string) => {
-    console.warn("Selected: ", option);
-  };
+
+  
 
   return (
     <Card title={question.title}>
@@ -23,8 +22,7 @@ export default function QuestionCard({ question }: QuestionProps) {
           <AnswerOption
             key={option}
             option={option}
-            isSelected={option === selectedOption}
-            onPress={() => onOptionSelected(option)}
+        
           />
         ))}
       </View>
