@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { useState } from "react";
+import React, { useEffect } from "react";
 
 import AnswerOption from "./AnswerOption";
 import { Question } from "../types";
@@ -11,19 +10,13 @@ type QuestionProps = {
 };
 
 export default function QuestionCard({ question }: QuestionProps) {
-
-
-  
+  useEffect(() => {}, []);
 
   return (
     <Card title={question.title}>
       <View style={{ gap: 10 }}>
         {question.options.map((option) => (
-          <AnswerOption
-            key={option}
-            option={option}
-        
-          />
+          <AnswerOption key={option} option={option} />
         ))}
       </View>
     </Card>
